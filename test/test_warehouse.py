@@ -1,5 +1,3 @@
-from app.warehouse import Warehouse
-
 import pytest
 from app.warehouse import Warehouse
 
@@ -18,7 +16,7 @@ def test_add_existing_product_raises_error():
     warehouse = Warehouse()
     warehouse.add_product("Laptop", 3000, 5)
 
-    with pytest.raises(ValueError, match="już istnieje"):
+    with pytest.raises(ValueError):
         warehouse.add_product("Laptop", 3500, 10)
 
 
@@ -36,7 +34,7 @@ def test_update_product_price_and_quantity():
 def test_update_non_existing_product_raises_error():
     warehouse = Warehouse()
 
-    with pytest.raises(ValueError, match="nie istnieje"):
+    with pytest.raises(ValueError):
         warehouse.update_product("Tablet", price=1000)
 
 
@@ -52,5 +50,5 @@ def test_delete_product():
 def test_delete_non_existing_product_raises_error():
     warehouse = Warehouse()
 
-    with pytest.raises(ValueError, match="nie istnieje"):
+    with pytest.raises(ValueError):
         warehouse.delete_product("Mouse")

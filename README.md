@@ -1,1 +1,1 @@
-CI Test
+Requires Python >= 3.9
